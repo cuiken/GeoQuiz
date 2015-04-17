@@ -1,6 +1,7 @@
 package com.stud.geoquiz.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -21,6 +22,7 @@ public class GeoQuizActivity extends Activity {
     private Button mFalseButton;
     private ImageButton mNextButton;
     private ImageButton mPrevButton;
+    private Button mCheatButton;
     private TextView mQuestionTextView;
 
     private TrueFalse[] mQuestionBank = new TrueFalse[]{
@@ -103,6 +105,17 @@ public class GeoQuizActivity extends Activity {
                 }
                 mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
                 updateQuestion();
+            }
+        });
+
+        mCheatButton = (Button) findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                //start CheatActivity
+                Intent i = new Intent(GeoQuizActivity.this, CheatActivity.class);
+                startActivity(i);
             }
         });
         if (savedInstanceState != null) {
