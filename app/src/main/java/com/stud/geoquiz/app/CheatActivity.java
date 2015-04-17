@@ -2,6 +2,7 @@ package com.stud.geoquiz.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,6 +23,7 @@ public class CheatActivity extends Activity {
     private boolean isAnswerShown;
 
     private TextView mAnswerTextView;
+    private TextView mVersionTextView;
     private Button mShowButton;
 
     @Override
@@ -48,6 +50,9 @@ public class CheatActivity extends Activity {
                 setAnswerShownResult(true);
             }
         });
+
+        mVersionTextView = (TextView) findViewById(R.id.versionTextView);
+        mVersionTextView.setText("Api level "+Build.VERSION.SDK_INT);
 
     }
 
