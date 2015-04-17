@@ -115,6 +115,8 @@ public class GeoQuizActivity extends Activity {
             public void onClick(View v) {
                 //start CheatActivity
                 Intent i = new Intent(GeoQuizActivity.this, CheatActivity.class);
+                boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
+                i.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
                 startActivity(i);
             }
         });
