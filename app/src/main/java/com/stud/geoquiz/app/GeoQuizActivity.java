@@ -17,6 +17,7 @@ public class GeoQuizActivity extends Activity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String KEY_IS_CHEATER = "isCheater";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -129,6 +130,7 @@ public class GeoQuizActivity extends Activity {
         });
         if (savedInstanceState != null) {
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(KEY_IS_CHEATER, false);
         }
         updateQuestion();
     }
@@ -146,6 +148,7 @@ public class GeoQuizActivity extends Activity {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "onSaveInstanceState");
         outState.putInt(KEY_INDEX, mCurrentIndex);
+        outState.putBoolean(KEY_IS_CHEATER, mIsCheater);
     }
 
     @Override
